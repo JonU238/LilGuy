@@ -6,7 +6,9 @@ float totalAcc = 0;
 int threashold = 0;
 int sampleRate = 10; //ms delay per cycle (should be low AF)
 int boostTime = 250;//Length of time to feel g's before going "AAHHHAHA"
-int boostThreshold = 15;//G's
+int boostThreshold = 2;//G's
+int onTime = 1;//Min
+
 
 
 void setup() {
@@ -29,7 +31,7 @@ void loop(){
     if (threashold >= boostTime/sampleRate){
         threashold = 0;
         Serial.println("BOOST");
-        delay(1000);
+        delay(onTime*1000*60);
     }
     
 }
